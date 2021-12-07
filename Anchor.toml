@@ -1,0 +1,13 @@
+[programs.localnet]
+contribpage = "Hs18JoJZYm9VGA38fJVwfAbKGCkv3ssGVwByTiD4Fb6"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/leonmaksin/.config/solana/id.json"
+
+[scripts]
+test = "node tests/contribpage.js"
+# test = "mocha -t 1000000 tests/"
