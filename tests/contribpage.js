@@ -24,6 +24,7 @@ const main = async() => {
 
   let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log('👀 Item Count', account.totalItems.toString())
+  console.log('💰 Donation Total', account.donationTotal.toString())
 
   await program.rpc.addItem("sample message", "John Wick", 64, new BN(1), "aliceblue", new BN(2),
                             new BN(3), new BN(new Date().getTime()),
@@ -35,18 +36,9 @@ const main = async() => {
     });
   
   account = await program.account.baseAccount.fetch(baseAccount.publicKey);
-  console.log('👀 GIF Count', account.totalItems.toString())
-  console.log('👀 GIF List', account.itemList)
-
-  // console.log('🗳 Vote Count', account.gifList[0].totalVotes.toString())
-  // await program.rpc.voteItem(account.gifList[0].gifId, {
-  //   accounts: {
-  //     baseAccount: baseAccount.publicKey,
-  //   },
-  // });
-  // account = await program.account.baseAccount.fetch(baseAccount.publicKey);
-
-  // console.log('🗳 Vote Count', account.gifList[0].totalVotes.toString())
+  console.log('👀 Item Count', account.totalItems.toString())
+  console.log('👀 Item List', account.itemList)
+  console.log('💰 Donation Total', account.donationTotal.toString())
 
   console.log('🏁 Test finished')
 }

@@ -8,6 +8,7 @@ pub mod contribpage {
     pub fn initialize(ctx: Context<Initialize>) -> ProgramResult {
         let base_account = &mut ctx.accounts.base_account;
         base_account.total_items = 0;
+        base_account.donation_total = 0;
         Ok(())
     }
 
@@ -44,6 +45,7 @@ pub mod contribpage {
     
         base_account.item_list.push(item);
         base_account.total_items += 1;
+        base_account.donation_total += ammount;
 
         Ok(())
     }
@@ -69,6 +71,7 @@ pub struct AddItem<'info> {
 #[account]
 pub struct BaseAccount {
     pub total_items: u64,
+    pub donation_total: u64,
     pub item_list: Vec<ItemStruct>,
 }
 
